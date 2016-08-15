@@ -1,0 +1,127 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.FocusListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.*;
+import javax.swing.border.Border;
+import javax.swing.*;
+
+public class ClassFocusII extends JFrame implements FocusListener, ActionListener{
+
+    private JMenuBar menuBar;
+    private JLabel label1;
+    private JTextField textfield1;
+    private JTextField textfield2;
+    private JTextField textfield3;
+    
+    //Constructor 
+    public ClassFocusII(){
+
+        this.setTitle("Maintenance for fines in New York City");
+        this.setSize(500,400);
+
+        //pane with null layout
+        JPanel contentPane = new JPanel(null);
+        contentPane.setPreferredSize(new Dimension(500,400));
+        contentPane.setBackground(new Color(192,192,192));
+
+
+        label1 = new JLabel();
+        label1.setBounds(63,207,266,35);
+        label1.setBackground(new Color(214,217,223));
+        label1.setForeground(new Color(0,0,0));
+        label1.setEnabled(true);
+        label1.setFont(new Font("sansserif",0,12));
+        label1.setText("label");
+        label1.setVisible(true);
+
+        textfield1 = new JTextField();
+        textfield1.setBounds(38,32,284,29);
+        textfield1.setBackground(new Color(255,255,255));
+        textfield1.setForeground(new Color(0,0,0));
+        textfield1.setEnabled(true);
+        textfield1.setFont(new Font("sansserif",0,12));
+        textfield1.setText("JTextField");
+        textfield1.setVisible(true);
+
+        textfield2 = new JTextField();
+        textfield2.setBounds(40,67,282,28);
+        textfield2.setBackground(new Color(255,255,255));
+        textfield2.setForeground(new Color(0,0,0));
+        textfield2.setEnabled(true);
+        textfield2.setFont(new Font("sansserif",0,12));
+        textfield2.setText("JTextField");
+        textfield2.setVisible(true);
+
+        textfield3 = new JTextField();
+        textfield3.setBounds(42,102,275,28);
+        textfield3.setBackground(new Color(255,255,255));
+        textfield3.setForeground(new Color(0,0,0));
+        textfield3.setEnabled(true);
+        textfield3.setFont(new Font("sansserif",0,12));
+        textfield3.setText("JTextField");
+        textfield3.setVisible(true);
+
+        textfield1.addFocusListener(this);
+        textfield2.addFocusListener(this);
+        textfield3.addFocusListener(this);
+        
+        textfield1.addActionListener(this);
+        textfield2.addActionListener(this);
+        textfield3.addActionListener(this);
+        
+        //adding components to contentPane panel
+        contentPane.add(label1);
+        contentPane.add(textfield1);
+        contentPane.add(textfield2);
+        contentPane.add(textfield3);
+
+        //adding panel to JFrame and setting of window position and close operation
+        this.add(contentPane);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.pack();
+        this.setVisible(true);
+    }
+
+ 
+    //@Override
+       public void focusGained(java.awt.event.FocusEvent e) {
+            if(e.getSource().equals(textfield1)){
+                label1.setText("...searching the database by name...");
+                textfield1.selectAll();
+            }else if(e.getSource().equals(textfield2)){
+                label1.setText("...searching the database by surname...");
+                textfield2.selectAll();
+            }else if(e.getSource().equals(textfield3)){
+                label1.setText("...searching the database by second surname");
+                textfield3.selectAll();
+            }
+        }
+ 
+        //@Override
+       public void focusLost(FocusEvent e) {
+           focusGained(e);
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, ""
+                    + "Name: "+textfield1.getText()+"\n"
+                    + "Surname: "+textfield2.getText()+"\n"
+                    + "Second surname: "+textfield3.getText()+"\n");
+        }
+
+     public static void main(String[] args){
+    	 		ClassFocusII objProgr;
+                objProgr  = new ClassFocusII();
+    }
+
+}
