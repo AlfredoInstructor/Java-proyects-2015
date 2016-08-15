@@ -1,0 +1,117 @@
+import javax.swing.UIManager.LookAndFeelInfo;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.*;
+import javax.swing.border.Border;
+import javax.swing.*;
+
+
+public class ClassCheckBox extends JFrame implements ActionListener, ItemListener{
+
+    private JMenuBar menuBar;
+    private JButton button1;
+    private JCheckBox checkbox1;
+    private JCheckBox checkbox2;
+    private JCheckBox checkbox3;
+
+    //Constructor 
+    public ClassCheckBox(){
+
+        this.setTitle("Form of  maintenance of New York city cars");
+        this.setSize(481,125);
+
+
+        //pane with null layout
+        JPanel contentPane = new JPanel(null);
+        contentPane.setPreferredSize(new Dimension(481,125));
+        contentPane.setBackground(new Color(192,192,192));
+
+
+        button1 = new JButton();
+        button1.setBounds(160,32,90,35);
+        button1.setBackground(new Color(214,217,223));
+        button1.setForeground(new Color(0,0,0));
+        button1.setEnabled(true);
+        button1.setFont(new Font("sansserif",0,12));
+        button1.setText("Check");
+        button1.setVisible(true);
+        button1.addActionListener(this);
+        
+        checkbox1 = new JCheckBox();
+        checkbox1.setBounds(56,5,90,35);
+        checkbox1.setBackground(new Color(214,217,223));
+        checkbox1.setForeground(new Color(0,0,0));
+        checkbox1.setEnabled(true);
+        checkbox1.setFont(new Font("sansserif",0,12));
+        checkbox1.setText("Chevrolet");
+        checkbox1.setVisible(true);
+        
+        checkbox1.addItemListener(this);
+
+        checkbox2 = new JCheckBox();
+        checkbox2.setBounds(58,31,90,35);
+        checkbox2.setBackground(new Color(214,217,223));
+        checkbox2.setForeground(new Color(0,0,0));
+        checkbox2.setEnabled(true);
+        checkbox2.setFont(new Font("sansserif",0,12));
+        checkbox2.setText("Mazda");
+        checkbox2.setVisible(true);
+        
+        checkbox2.addItemListener(this);
+
+        checkbox3 = new JCheckBox();
+        checkbox3.setBounds(59,59,90,35);
+        checkbox3.setBackground(new Color(214,217,223));
+        checkbox3.setForeground(new Color(0,0,0));
+        checkbox3.setEnabled(true);
+        checkbox3.setFont(new Font("sansserif",0,12));
+        checkbox3.setText("Toyota");
+        checkbox3.setVisible(true);
+        
+        checkbox3.addItemListener(this);
+
+        //adding components to contentPane panel
+        contentPane.add(button1);
+        contentPane.add(checkbox1);
+        contentPane.add(checkbox2);
+        contentPane.add(checkbox3);
+
+        //adding panel to JFrame and seting of window position and close operation
+        this.add(contentPane);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.pack();
+        this.setVisible(true);
+    }
+
+     @Override
+        public void actionPerformed(ActionEvent e) {
+    	 System.exit(ABORT);
+        }
+        
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            if(checkbox1.isSelected())
+            	JOptionPane.showMessageDialog(null,"Chevrolet");
+            else
+            	if(checkbox2.isSelected())
+            		JOptionPane.showMessageDialog(null,"Mazda");
+            	else
+            		if(checkbox3.isSelected())
+            			JOptionPane.showMessageDialog(null,"Toyota");
+            
+        }
+
+     public static void main(String[] args){
+    	 	   ClassCheckBox objProgr;
+               objProgr =  new ClassCheckBox();
+     }
+
+}
