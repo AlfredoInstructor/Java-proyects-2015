@@ -1,0 +1,129 @@
+import javax.swing.UIManager.LookAndFeelInfo;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import javax.swing.border.Border;
+import javax.swing.*;
+
+
+public class ClassRadioB extends JFrame implements ActionListener{
+
+    private JMenuBar menuBar;
+    private JButton button1;
+    private JRadioButton jRadioButton1;
+    private JRadioButton jRadioButton2;
+    private JRadioButton jRadioButton3;
+    private JPanel panel1;
+    
+    
+    private void groupButton() {
+    	ButtonGroup bg1 = new ButtonGroup();
+    	bg1.add(jRadioButton1);
+    	bg1.add(jRadioButton2);
+    	bg1.add(jRadioButton3);
+    }
+
+    //Constructor 
+    public ClassRadioB(){
+
+        this.setTitle("Income payments of fines.");
+        this.setSize(500,400);
+
+
+        //pane with null layout
+        JPanel contentPane = new JPanel(null);
+        contentPane.setPreferredSize(new Dimension(500,400));
+        contentPane.setBackground(new Color(192,192,192));
+
+
+        button1 = new JButton();
+        button1.setBounds(115,284,116,33);
+        button1.setBackground(new Color(214,217,223));
+        button1.setForeground(new Color(0,0,0));
+        button1.setEnabled(true);
+        button1.setFont(new Font("sansserif",0,12));
+        button1.setText("Button pay");
+        button1.setVisible(true);
+
+        jRadioButton1 = new JRadioButton();
+        jRadioButton1.setBounds(44,17,90,35);
+        jRadioButton1.setBackground(new Color(214,217,223));
+        jRadioButton1.setForeground(new Color(0,0,0));
+        jRadioButton1.setEnabled(true);
+        jRadioButton1.setFont(new Font("sansserif",0,12));
+        jRadioButton1.setText("Credit Card");
+        jRadioButton1.setVisible(true);
+
+        jRadioButton2 = new JRadioButton();
+        jRadioButton2.setBounds(44,56,90,35);
+        jRadioButton2.setBackground(new Color(214,217,223));
+        jRadioButton2.setForeground(new Color(0,0,0));
+        jRadioButton2.setEnabled(true);
+        jRadioButton2.setFont(new Font("sansserif",0,12));
+        jRadioButton2.setText("Debit Card");
+        jRadioButton2.setVisible(true);
+
+        jRadioButton3 = new JRadioButton();
+        jRadioButton3.setBounds(43,92,90,35);
+        jRadioButton3.setBackground(new Color(214,217,223));
+        jRadioButton3.setForeground(new Color(0,0,0));
+        jRadioButton3.setEnabled(true);
+        jRadioButton3.setFont(new Font("sansserif",0,12));
+        jRadioButton3.setText("PayPal");
+        jRadioButton3.setVisible(true);
+
+        panel1 = new JPanel(null);
+        panel1.setBorder(BorderFactory.createEtchedBorder(1));
+        panel1.setBounds(39,67,268,191);
+        panel1.setBackground(new Color(214,217,223));
+        panel1.setForeground(new Color(0,0,0));
+        panel1.setEnabled(true);
+        panel1.setFont(new Font("sansserif",0,12));
+        panel1.setVisible(true);
+        
+        button1.addActionListener(this);
+
+        //adding components to contentPane panel
+        contentPane.add(button1);
+        panel1.add(jRadioButton1);
+        panel1.add(jRadioButton2);
+        panel1.add(jRadioButton3);
+        
+        contentPane.add(panel1);
+
+        groupButton();
+        //adding panel to JFrame and seting of window position and close operation
+        this.add(contentPane);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent event)
+    {
+        String radiotext = "";
+        if (jRadioButton1.isSelected())
+            radiotext = jRadioButton1.getText();
+        else if (jRadioButton2.isSelected())
+            radiotext = jRadioButton2.getText();
+            else if(jRadioButton3.isSelected())
+                radiotext = jRadioButton3.getText();
+        
+        javax.swing.JOptionPane.showMessageDialog(this, radiotext);
+            
+    }
+
+
+     public static void main(String[] args){
+    	 ClassRadioB objRadioB;
+              objRadioB = new ClassRadioB();
+    }
+
+}
