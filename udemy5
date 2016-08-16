@@ -1,0 +1,88 @@
+import javax.swing.UIManager.LookAndFeelInfo;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.MouseListener;
+import javax.swing.border.Border;
+import javax.swing.*;
+
+
+public class ClassMouseEnt extends JFrame{
+
+	private JMenuBar menuBar;
+	private JPanel panel1;
+	private JTextField textfield1;
+
+	//Constructor 
+	public ClassMouseEnt(){
+
+		this.setTitle("Project Mouse Enter Event");
+		this.setSize(500,400);
+
+		//pane with null layout
+		JPanel contentPane = new JPanel(null);
+		contentPane.setPreferredSize(new Dimension(500,400));
+		contentPane.setBackground(new Color(192,192,192));
+
+
+		panel1 = new JPanel(null);
+		panel1.setBorder(BorderFactory.createEtchedBorder(1));
+		panel1.setBounds(5,5,494,394);
+		panel1.setBackground(new Color(214,217,223));
+		panel1.setForeground(new Color(0,0,0));
+		panel1.setEnabled(true);
+		panel1.setFont(new Font("sansserif",0,12));
+		panel1.setVisible(true);
+
+		textfield1 = new JTextField();
+		textfield1.setBounds(152,141,90,35);
+		textfield1.setBackground(new Color(255,255,255));
+		textfield1.setForeground(new Color(0,0,0));
+		textfield1.setEnabled(true);
+		textfield1.setFont(new Font("sansserif",0,12));
+		textfield1.setText("JTextField");
+		textfield1.setVisible(true);
+		//Set methods for mouse events
+		//Call defined methods
+
+		
+		textfield1.addMouseListener(new MouseAdapter() 
+			{
+				public void mouseEntered(MouseEvent evt)
+				{
+					methodMouseEntered(evt);
+				}
+			}
+		);
+
+
+		//adding components to contentPane panel
+		contentPane.add(panel1);
+		panel1.add(textfield1);
+
+		//adding panel to JFrame and seting of window position and close operation
+		this.add(contentPane);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.pack();
+		this.setVisible(true);
+	}
+
+	//Method mouseEntered for textfield1
+	private void methodMouseEntered (MouseEvent evt) {
+				JOptionPane.showMessageDialog(null, "Hello!");
+	}
+
+
+	 public static void main(String[] args){
+		 ClassMouseEnt objProgr;
+		 objProgr = new ClassMouseEnt();
+	}
+
+}
