@@ -1,0 +1,102 @@
+mport javax.swing.*;
+import java.awt.*;
+
+public class ClassRadioButton extends JFrame{
+
+    private JRadioButton radiobutton1;
+    private JRadioButton radiobutton2;
+    private JRadioButton radiobutton3;
+    private JRadioButton radiobutton4;
+    private JRadioButton radiobutton5;
+    ButtonGroup bg1 = new ButtonGroup( );
+    
+private void groupButton() 
+{
+    bg1 = new ButtonGroup( );
+
+    bg1.add(radiobutton1);
+    bg1.add(radiobutton2);
+    bg1.add(radiobutton3);
+    bg1.add(radiobutton4);
+    bg1.add(radiobutton5);
+ }
+
+public ClassRadioButton(){
+
+    //pane with null layout
+    JPanel contentPane = new JPanel(null);
+
+
+    radiobutton1 = new JRadioButton();
+    radiobutton1.setBounds(77,48,90,35);
+    radiobutton1.setBackground(new Color(214,217,223));
+    radiobutton1.setForeground(new Color(0,0,0));
+    radiobutton1.setEnabled(true);
+    radiobutton1.setFont(new Font("sansserif",0,12));
+    radiobutton1.setText("Example1");
+    radiobutton1.setVisible(true);
+
+    radiobutton2 = new JRadioButton();
+    radiobutton2.setBounds(78,81,90,35);
+    radiobutton2.setBackground(new Color(214,217,223));
+    radiobutton2.setForeground(new Color(0,0,0));
+    radiobutton2.setEnabled(true);
+    radiobutton2.setFont(new Font("sansserif",0,12));
+    radiobutton2.setText("Example2");
+    radiobutton2.setVisible(true);
+
+    radiobutton3 = new JRadioButton();
+    radiobutton3.setBounds(78,110,90,35);
+    radiobutton3.setBackground(new Color(214,217,223));
+    radiobutton3.setForeground(new Color(0,0,0));
+    radiobutton3.setEnabled(true);
+    radiobutton3.setFont(new Font("sansserif",0,12));
+    radiobutton3.setText("Example3");
+    radiobutton3.setVisible(true);
+
+    radiobutton4 = new JRadioButton();
+    radiobutton4.setBounds(78,146,90,35);
+    radiobutton4.setBackground(new Color(214,217,223));
+    radiobutton4.setForeground(new Color(0,0,0));
+    radiobutton4.setEnabled(true);
+    radiobutton4.setFont(new Font("sansserif",0,12));
+    radiobutton4.setText("Example4");
+    radiobutton4.setVisible(true);
+
+    radiobutton5 = new JRadioButton();
+    radiobutton5.setBounds(79,179,90,35);
+    radiobutton5.setBackground(new Color(214,217,223));
+    radiobutton5.setForeground(new Color(0,0,0));
+    radiobutton5.setEnabled(true);
+    radiobutton5.setFont(new Font("sansserif",0,12));
+    radiobutton5.setText("Example5");
+    radiobutton5.setVisible(true);
+
+    groupButton();
+
+    //adding components to contentPane panel
+    contentPane.add(radiobutton1);
+    contentPane.add(radiobutton2);
+    contentPane.add(radiobutton3);
+    contentPane.add(radiobutton4);
+    contentPane.add(radiobutton5);
+
+    //adding panel to JFrame and setting of window position and close operation
+    this.add(contentPane);
+ 
+	
+	this.setSize(400, 400);
+	this.setTitle("Frame of radiobuttons");
+	this.setResizable(false);
+	
+	this.setVisible(true);
+	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ }
+
+
+	public static void main(String[] args) {
+		ClassRadioButton objProgr;
+		objProgr = new ClassRadioButton();
+	}
+
+}
