@@ -1,0 +1,39 @@
+	import javax.swing.*;
+	import java.awt.event.*;
+	
+public class ClassCenterWin {
+	
+	/*Centrar JDialog en JFrame
+
+	Si lo que deseamos es centrar un JDialog en el JFrame “padre”, 
+	lo que hacemos es usar el mismo método, 
+	pero esta vez especificando que la posicioón de apertura del JDialog será con respecta al JFrame:
+	*/
+	JButton botton = new JButton("Abrir Dialogo");
+	JFrame frame = new JFrame("Prueba JFrame");
+	
+	public ClassCenterWin()
+	{
+		 frame.setSize(500, 500);
+	      frame.setLocationRelativeTo(null);
+	      
+	      botton.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            JDialog dialogo = new JDialog(frame);
+		            dialogo.setSize(100, 100);
+		            dialogo.setLocationRelativeTo(frame);
+		            dialogo.setVisible(true);
+		         }
+		      });
+		 
+		      frame.add(botton);
+		     frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		      frame.setVisible(true);
+	}
+	
+	public static void main(String[] args){
+		   ClassCenterWin objCenter;
+		   objCenter  = new ClassCenterWin();
+	   }
+}
+
