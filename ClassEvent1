@@ -1,0 +1,39 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ClassEvent1 extends JFrame implements ActionListener{
+	JButton buttonOk;
+	JPanel panel1;
+	JFrame window;
+	
+	public ClassEvent1(){
+		buttonOk = new JButton("OK");
+		panel1 = new JPanel();
+		window = new JFrame();
+	}
+
+	public void showWindow(){
+		buttonOk.addActionListener(this);
+		panel1.add(buttonOk);
+		
+		window.add(panel1);
+		
+		window.pack();
+		window.setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent evt)
+	{
+		JOptionPane.showMessageDialog(this, "You just to do is click");
+	}
+
+	
+	public static void main(String[] args) {
+		ClassEvent1 objectProgram;
+		objectProgram = new ClassEvent1();
+		
+		objectProgram.showWindow();
+	}
+
+}
